@@ -69,3 +69,14 @@ textarea {
   font-size: 20px;
   transition: all 0.3s ease-in-out;
 }
+
+.row {
+  border: 2px solid;
+  display: flex;
+}
+
+.time {
+  text-align: right;
+  padding-top: 5px;
+  border-top: 2px solid grey;
+}
