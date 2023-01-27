@@ -23,12 +23,19 @@ colorCode.each(function() {
 });
 
 // create submit buttons
-$(document).ready(function() {
-    $('.submit').append(
-        $(document.createElement('button')).prop({
-            type: 'button',
-            class: 'btn-block'
-        })
-    );
-    $('button').append('<i class="fas fa-save style"></i>');
+ $('.submit').append(
+     $(document.createElement('button')).prop({
+        type: 'button',
+        class: 'btn-block'
+    })
+);
+$('button').append('<i class="fas fa-save style"></i>');
+
+// store user input in local storage on save button click
+$('.submit').on('click', function () {
+    $('textarea').each(function() {
+        let value = $(this).val(),
+            id = $(this).attr('id');
+        localStorage[`Task ${id}`] = value;
+       });  
 });
