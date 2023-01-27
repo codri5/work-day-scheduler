@@ -1,16 +1,16 @@
 'use strict';
 
-// reference date
+// References date
 let date = $('#currentDay');
 
-// get current date
+// Current date values
 let weekday = moment().format('dddd')
 let month = moment().format('MMMM')
 let day = moment().format('Do')
 
 date.html(`${weekday}, ${month} ${day}`);
 
-// color code blocks based on current time
+// Color code blocks based on current time
 let currentTime = parseInt(moment().format('H'));
 
 $('.color-code').each(function () {
@@ -20,16 +20,18 @@ $('.color-code').each(function () {
         if (hour > currentTime) { $(this).addClass('future'); }
     });
   
-// create submit buttons
+// Creates submit buttons
  $('.submit').append(
      $(document.createElement('button')).prop({
         type: 'button',
         class: 'btn-block'
     })
 );
+
+// Adds icons to buttons
 $('button').append('<i class="fas fa-save style"></i>');
 
-// store user input in local storage on save button click
+// Stores user input in local storage on button click
 $('.submit').on('click', function () {
     $('textarea').each(function() {
         let value = $(this).val(),
@@ -38,7 +40,7 @@ $('.submit').on('click', function () {
     });
   });
 
-// get local storage values on refresh
+// Retrieves values from local storage
 $('#h9').val(localStorage.getItem('h9'));
 $('#h10').val(localStorage.getItem('h10'));
 $('#h11').val(localStorage.getItem('h11'));
@@ -48,3 +50,20 @@ $('#h14').val(localStorage.getItem('h14'));
 $('#h15').val(localStorage.getItem('h15'));
 $('#h16').val(localStorage.getItem('h16'));
 $('#h17').val(localStorage.getItem('h17'));
+
+// Clears previous day tasks
+function clearStorage() {
+    if (currentTime === 0) {
+        $('#h9').val(localStorage.removeItem('h9'));
+        $('#h10').val(localStorage.removeItem('h10'));
+        $('#h11').val(localStorage.removeItem('h11'));
+        $('#h12').val(localStorage.removeItem('h12'));
+        $('#h13').val(localStorage.removeItem('h13'));
+        $('#h14').val(localStorage.removeItem('h14'));
+        $('#h15').val(localStorage.removeItem('h15'));
+        $('#h16').val(localStorage.removeItem('h16'));
+        $('#h17').val(localStorage.removeItem('h17'));
+    } 
+}
+
+clearStorage()
