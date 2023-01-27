@@ -24,15 +24,6 @@ textarea:focus {
   border-bottom: 10px solid black;
 }
 
-.description {
-  white-space: pre-wrap;
-}
-
-.time-block {
-  text-align: center;
-  border-radius: 15px;
-}
-
 .row {
   white-space: pre-wrap;
   height: 80px;
@@ -58,18 +49,6 @@ textarea:focus {
 .future {
   background-color: #77dd77;
   color: white;
-}
-
-.row {
-  display: flex;
-}
-
-.time {
-  display: flex;
-  text-align: right;
-  padding-top: 10px;
-  border-top: 2px solid lightgrey;
-  border-right: 2px solid lightgrey;
 }
 
 .submit {

@@ -11,17 +11,15 @@ let day = moment().format('Do')
 date.html(`${weekday}, ${month} ${day}`);
 
 // color code blocks based on current time
-let colorCode = $('.color-code');
 let currentTime = parseInt(moment().format('H'));
 
-colorCode.each(function() {
+$('.color-code').each(function () {
     let hour = parseInt($(this).prop('id'));
-    if (hour > currentTime && hour < currentTime + 6 ) { $(this).css('background-color','lightgrey'); } 
-    else if (hour < currentTime && hour > currentTime - 6) { $(this).css('background-color','green'); } 
-    else if (hour === currentTime) { $(this).css('background-color', 'red'); } 
-    else { $(this).css('background-color','lightpink'); }
-});
-
+        if (hour < currentTime) { $(this).addClass('past'); }
+        if (hour === currentTime) { $(this).addClass('present'); }
+        if (hour > currentTime) { $(this).addClass('future'); }
+    });
+  
 // create submit buttons
  $('.submit').append(
      $(document.createElement('button')).prop({
@@ -35,7 +33,18 @@ $('button').append('<i class="fas fa-save style"></i>');
 $('.submit').on('click', function () {
     $('textarea').each(function() {
         let value = $(this).val(),
-            id = $(this).attr('id');
-        localStorage[`Task ${id}`] = value;
-       });  
-});
+        id = $(this).attr('id');
+        localStorage.setItem(id, value);
+    });
+  });
+
+// get local storage values on refresh
+$('#h9').val(localStorage.getItem('h9'));
+$('#h10').val(localStorage.getItem('h10'));
+$('#h11').val(localStorage.getItem('h11'));
+$('#h12').val(localStorage.getItem('h12'));
+$('#h13').val(localStorage.getItem('h13'));
+$('#h14').val(localStorage.getItem('h14'));
+$('#h15').val(localStorage.getItem('h15'));
+$('#h16').val(localStorage.getItem('h16'));
+$('#h17').val(localStorage.getItem('h17'));
