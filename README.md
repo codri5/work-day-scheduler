@@ -18,9 +18,9 @@ Enter events in the timeblocks chosen and click the save button.
 
 ## Screenshots
 
-<img src="assets/images/calendar" width="250" height="250" alt="calendar"/>
+<img src="assets/images/calendar.png" width="250" height="250" alt="calendar"/>
 
-<img src="assets/images/calendar-events" width="250" height="250" alt="calendar events"/>
+<img src="assets/images/calendar-events.png" width="250" height="250" alt="calendar events"/>
 
 ## Credits
 
