@@ -53,7 +53,8 @@ $('#h17').val(localStorage.getItem('h17'));
 
 // Clears previous day tasks
 function clearStorage() {
-    if (currentTime === 0) {
+    let currentMinutes = parseInt(moment().format('m'));
+    while (currentTime === 0 && currentMinutes === 0) {
         $('#h9').val(localStorage.removeItem('h9'));
         $('#h10').val(localStorage.removeItem('h10'));
         $('#h11').val(localStorage.removeItem('h11'));
@@ -63,7 +64,8 @@ function clearStorage() {
         $('#h15').val(localStorage.removeItem('h15'));
         $('#h16').val(localStorage.removeItem('h16'));
         $('#h17').val(localStorage.removeItem('h17'));
-    } 
+        break;
+    }
 }
 
 clearStorage()
